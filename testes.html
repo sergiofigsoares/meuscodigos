@@ -1,40 +1,45 @@
-<meta charset="utf-8">
+<!-- bandeiras.html -->
 
 <canvas width="600" height="400"></canvas>
 
-<script type="text/javascript">
-
+<script>
     var tela = document.querySelector('canvas');
     var pincel = tela.getContext('2d');
-  
 
-    function desenhaCirculo(x, y, raio) {
+    var raio = 20
 
-        pincel.fillStyle = 'blue';
+    function desenhaCirculo(x, y, raio, cor) {
+
+        pincel.fillStyle = cor;
         pincel.beginPath();
-        pincel.arc(x, y, raio, 0, 2 * 3.14);
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
         pincel.fill();
     }
 
     function limpaTela() {
-    pincel.clearRect(0, 0, 600, 400);
+        pincel.clearRect(0, 0, 600, 400)
     }
 
-    var x = 20;
-    var sentido = 1;
+    function desenhaAlvo(x, y) {
+        desenhaCirculo(x, y, raio + 20, 'red')
+        desenhaCirculo(x, y, raio + 10, 'white')
+        desenhaCirculo(x, y, raio, 'red')
+    }
 
-    function atualizaTela() {
+    function sorteiaPosicao(maximo) {
+
+        return Math.floor(Math.random() * maximo)
+    }
+
+    function atualizaPosicao() {
         limpaTela();
-        if (x > 600){
-            sentido = -1;
-        } else if (x < 0){
-            sentido = 1;
-        }
+        xAleatorio = sorteiaPosicao(600);
+        yAleatorio = sorteiaPosicao(400);
 
-        desenhaCirculo(x, 20, 10);
-        x = x + sentido;
+        desenhaAlvo(xAleatorio, yAleatorio)
     }
 
-    setInterval(atualizaTela, 20);
+    setInterval(atualizaPosicao, 400)
 
+    desenhaAlvo(300, 200)
 </script>
