@@ -1,67 +1,106 @@
-<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">a
+<meta charset="UTF-8">
 
-
-<canvas width="2500" height="1200"></canvas>
+<canvas width="600" height="400"></canvas>
 
 <script>
-    var tela = document.querySelector('canvas');
-    var pincel = tela.getContext('2d');
-    pincel.fillStyle = 'lightgray';
-    pincel.fillRect(0, 0, 2300, 1200);
+    function desenhaQuadrado(x, y, tamanho, cor) {
 
-    var raio = 20
-
-    var xAleatorio;
-    var yAleatorio;
-
-    function desenhaCirculo(x, y, raio, cor) {
         pincel.fillStyle = cor;
-        pincel.beginPath();
-        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fillRect(x, y, tamanho, tamanho)
         pincel.fill();
     }
 
-    function desenhaAlvo(x, y) {
+    function desenhaCirculo(x, y, raio, cor) {
 
-        desenhaCirculo(x, y, raio + 20, 'red')
-        desenhaCirculo(x, y, raio + 10, 'white')
-        desenhaCirculo(x, y, raio, 'red')
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * 3.14);
+        pincel.fill();
+
     }
 
-    function limpaTela() {
-        pincel.clearRect(0, 0, 2300, 1400);
+    function desenhaPaletaDeCores() {
+
+        desenhaQuadrado(xVermelho, yQuadrados, tamanhoQuadrados, 'red');
+        desenhaQuadrado(xVerde, yQuadrados, tamanhoQuadrados, 'green');
+        desenhaQuadrado(xAzul, yQuadrados, tamanhoQuadrados, 'blue');
+
     }
 
-    function sorteiaPosicao(maximo) {
-
-        return Math.floor(Math.random() * maximo)
-    }
-
-    function atualizaTela() {
-        limpaTela();
-
-        xAleatorio = sorteiaPosicao(1600);
-        yAleatorio = sorteiaPosicao(1400);
-
-        desenhaAlvo(xAleatorio, yAleatorio)
-    }
-    setInterval(atualizaTela, 800);
-
-
-    function disparo(evento) {
+    function lidaComMovimentoDoMouse(evento) {
 
         var x = evento.pageX - tela.offsetLeft;
         var y = evento.pageY - tela.offsetTop;
 
-        if((x > xAleatorio - raio) 
-        && (x < xAleatorio + raio) 
-        && (y > yAleatorio - raio) 
-        && (y < yAleatorio + raio)
-        ){
-        alert("você acertou?");
-        }    
+        if (desenha && podeDesenharNaArea(x, y)) {
+
+            desenhaCirculo(x, y, 5, corAtual);
+        
         }
+    }
 
-        tela.onclick = disparo;
+    function podeDesenharNaArea(x, y) {
 
+        if (x >= 0 && x < 3 * tamanhoQuadrados && y >= 0 && y < tamanhoQuadrados) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function habilitaDesenhar() {
+
+        desenha = true;
+    }
+
+    function desabilitaDesenhar() {
+
+        desenha = false;
+    }
+
+    function selecionaCor(evento) {
+
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+
+        if (y > yQuadrados && y < yQuadrados + tamanhoQuadrados) {
+
+            if (x > xVermelho && x < xVermelho + tamanhoQuadrados) {
+
+                corAtual = 'red';
+
+            } else if (x > xVerde && x < xVerde + tamanhoQuadrados) {
+
+                corAtual = 'green';
+
+            } else if (x > xAzul && x < xAzul + tamanhoQuadrados) {
+
+                corAtual = 'blue';
+            }
+        }
+    }
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+    var desenha = false;
+    var corAtual = 'blue';
+    var xVermelho = 0;
+    var xVerde = 50;
+    var xAzul = 100;
+    var yQuadrados = 0;
+    var tamanhoQuadrados = 50;
+
+    desenhaPaletaDeCores();
+
+    tela.onmousemove = lidaComMovimentoDoMouse;
+
+    tela.onmousedown = habilitaDesenhar;
+
+    tela.onmouseup = desabilitaDesenhar;
+
+
+    tela.onclick = selecionaCor;
 </script>
