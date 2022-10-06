@@ -12,7 +12,7 @@
 
   function desenhaCirculo(x, y, raio, cor) {
 
-    pincel.fillStyle = cor; // o padrão é blue
+    pincel.fillStyle = cor;
     pincel.beginPath();
     pincel.arc(x, y, raio, 0, 2 * 3.14);
     pincel.fill();
@@ -32,7 +32,7 @@
     var x = evento.pageX - tela.offsetLeft;
     var y = evento.pageY - tela.offsetTop;
 
-    
+
     if (desenha && podeDesenharNaArea(x, y)) {
 
       desenhaCirculo(x, y, 5, corAtual);
@@ -63,7 +63,7 @@
     var x = evento.pageX - tela.offsetLeft;
     var y = evento.pageY - tela.offsetTop;
 
-  
+
     if (y > yQuadrados && y < yQuadrados + tamanhoQuadrados) {
 
       if (x > xVermelho && x < xVermelho + tamanhoQuadrados) {
@@ -80,6 +80,8 @@
       }
     }
   }
+
+
 
   var tela = document.querySelector('canvas');
   var pincel = tela.getContext('2d');
