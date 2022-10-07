@@ -2,103 +2,89 @@
 
     <canvas width="600" height="400"></canvas>
 
-    <script>
-        var tela = document.querySelector('canvas');
-        var pincel = tela.getContext('2d');
+    <body>
+        <script>
+            var tela = document.querySelector('canvas');
+            var pincel = tela.getContext('2d');
+            pincel.fillStyle = 'black';
+            pincel.fillRect(0, 0, 600, 400);
 
 
-        function desenhaQuadrado(x, y, tamanho, cor) {
+            function desenhaQuadrado(x, y, xF, yF, cor) {
 
-            pincel.fillStyle = cor;
-            pincel.fillRect(x, y, tamanho, tamanho)
-            pincel.fill();
-        }
-
-        function desenhaCirculo(x, y, raio, cor) {
-
-            pincel.fillStyle = cor;
-            pincel.beginPath();
-            pincel.arc(x, y, raio, 0, 2 * 3.14);
-            pincel.fill();
-
-        }
-
-        function desenhaPaletaDeCores() {
-
-            desenhaQuadrado(xVermelho, yQuadrados, tamanhoQuadrados, 'red');
-            desenhaQuadrado(xVerde, yQuadrados, tamanhoQuadrados, 'green');
-            desenhaQuadrado(xAzul, yQuadrados, tamanhoQuadrados, 'blue');
-
-        }
-
-        function lidaComMovimentoDoMouse(evento) {
-
-            var x = evento.pageX - tela.offsetLeft;
-            var y = evento.pageY - tela.offsetTop;
-
-            if (desenha) {
-
-                desenhaCirculo(x, y, 5, corAtual);
-                desenhaPaletaDeCores();
+                pincel.fillStyle = cor;
+                pincel.fillRect(x, y, xF, yaF)
+                pincel.fill();
             }
-        }
 
-        
+            function desenhaBolinha(x, y, raio) {
 
-        function habilitaDesenhar() {
+                desenhaQuadrado(0, 0, 600, 'black')
 
-            desenha = true;
-        }
+                pincel.fillStyle = 'white';
+                pincel.beginPath();
+                pincel.arc(x, y, raio, 0, 2 * 3.14);
+                pincel.fill();
 
-        function desabilitaDesenhar() {
-
-            desenha = false;
-        }
-
-        function selecionaCor(evento) {
-
-            var x = evento.pageX - tela.offsetLeft;
-            var y = evento.pageY - tela.offsetTop;
-
-            if (y > yQuadrados && y < yQuadrados + tamanhoQuadrados) {
-
-                if (x > xVermelho && x < xVermelho + tamanhoQuadrados) {
-
-                    corAtual = 'red';
-
-                } else if (x > xVerde && x < xVerde + tamanhoQuadrados) {
-
-                    corAtual = 'green';
-
-                } else if (x > xAzul && x < xAzul + tamanhoQuadrados) {
-
-                    corAtual = 'blue';
-                }
             }
-        }
 
-        var tela = document.querySelector('canvas');
-        var pincel = tela.getContext('2d');
-        pincel.fillStyle = 'lightgray';
-        pincel.fillRect(0, 0, 600, 400);
+            xBola = 300;
+            yBola = 200;
+            raioBola = 20
+            velocidadeXBola = 1;
+            velocidadeYBola = 1;
 
-        var desenha = false;
-        var corAtual = 'blue';
-        var xVermelho = 0;
-        var xVerde = 50;
-        var xAzul = 100;
-        var yQuadrados = 0;
-        var tamanhoQuadrados = 50;
+            function animaBola() {
 
-        desenhaPaletaDeCores();
+                desenhaBolinha(xBola, yBola, raioBola)
+                xBola = xBola + velocidadeXBola;
+                yBola = yBola + velocidadeYBola;
 
-        
-        tela.onmousemove = lidaComMovimentoDoMouse;
+                if (xBola > 600 - raioBola) {
 
-        tela.onmousedown = habilitaDesenhar;
+                    velocidadeXBola = velocidadeXBola * -1
+                } else if (xBola < 0 + raioBola) {
 
-        tela.onmouseup = desabilitaDesenhar;
+                    velocidadeXBola = velocidadeXBola * -1
+                };
+
+                if (yBola > 400 - raioBola) {
+
+                    velocidadeYBola = velocidadeYBola * -1
+                } else if (yBola < 0 + raioBola) {
+
+                    velocidadeYBola = velocidadeYBola * -1
+
+                };
+
+            }
 
 
-        tela.onclick = selecionaCor;
-    </script>
+            function desenhaRaquete(x, y, xF, yF) {
+
+                pincel.fillStyle = 'white';
+                pincel.fillRect(x, y, xF, yF)
+                pincel.fill();
+            }
+            var larguraRaquete = 10
+            var alturaRaquete = 150
+            var posicaoRaquete = 100
+
+            function animaRaquete() {
+
+                desenhaRaquete(10, posicaoRaquete, larguraRaquete, alturaRaquete)
+
+            }
+
+            function desceRaquete() {
+
+                posicaoRaquete = posicaoRaquete + 10
+
+            }
+
+
+            onkeydown = desceRaquete;
+            
+            setInterval(animaRaquete, 5)
+        </script>
+    </body> 
