@@ -13,13 +13,39 @@
             function desenhaQuadrado(x, y, xF, yF, cor) {
 
                 pincel.fillStyle = cor;
-                pincel.fillRect(x, y, xF, yaF)
+                pincel.fillRect(x, y, xF, yF)
+                pincel.fill();
+            }
+            var larguraRaquete = 10
+            var alturaRaquete = 150
+            var posicaoRaquete = 100
+            var xRaquete = 10
+            function desenhaRaquete() {
+
+                pincel.fillStyle = 'white';
+                pincel.fillRect(xRaquete, posicaoRaquete, larguraRaquete, alturaRaquete)
                 pincel.fill();
             }
 
+            function desceRaquete() {
+
+                console.log(evento.key)
+
+                posicaoRaquete = posicaoRaquete + 10
+            }
+
+            function sobeRaquete() {
+
+                
+                posicaoRaquete = posicaoRaquete - 10
+            }
+
+
             function desenhaBolinha(x, y, raio) {
 
-                desenhaQuadrado(0, 0, 600, 'black')
+                desenhaQuadrado(0, 0, 600, 400, 'black')
+
+                desenhaRaquete()
 
                 pincel.fillStyle = 'white';
                 pincel.beginPath();
@@ -35,8 +61,11 @@
             velocidadeYBola = 1;
 
             function animaBola() {
+            
+                
 
                 desenhaBolinha(xBola, yBola, raioBola)
+
                 xBola = xBola + velocidadeXBola;
                 yBola = yBola + velocidadeYBola;
 
@@ -57,34 +86,22 @@
 
                 };
 
-            }
+                if(xBola - raioBola < xRaquete +larguraRaquete 
+                && yBola- raioBola > posicaoRaquete 
+                && yBola - raioBola < posicaoRaquete + alturaRaquete){
 
-
-            function desenhaRaquete(x, y, xF, yF) {
-
-                pincel.fillStyle = 'white';
-                pincel.fillRect(x, y, xF, yF)
-                pincel.fill();
-            }
-            var larguraRaquete = 10
-            var alturaRaquete = 150
-            var posicaoRaquete = 100
-
-            function animaRaquete() {
-
-                desenhaRaquete(10, posicaoRaquete, larguraRaquete, alturaRaquete)
+                    velocidadeXBola = velocidadeXBola *-1
+                }
 
             }
 
-            function desceRaquete() {
-
-                posicaoRaquete = posicaoRaquete + 10
-
-            }
-
-
-            onkeydown = desceRaquete;
             
-            setInterval(animaRaquete, 5)
+
+            onkeypress = desceRaquete;
+            onclick = sobeRaquete;
+
+
+
+            setInterval(animaBola, 0)
         </script>
-    </body> 
+    </body>
