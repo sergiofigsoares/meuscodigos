@@ -20,6 +20,7 @@
             var alturaRaquete = 150
             var posicaoRaquete = 100
             var xRaquete = 10
+
             function desenhaRaquete() {
 
                 pincel.fillStyle = 'white';
@@ -29,14 +30,13 @@
 
             function desceRaquete() {
 
-                console.log(evento.key)
 
                 posicaoRaquete = posicaoRaquete + 10
             }
 
             function sobeRaquete() {
 
-                
+
                 posicaoRaquete = posicaoRaquete - 10
             }
 
@@ -61,8 +61,8 @@
             velocidadeYBola = 1;
 
             function animaBola() {
-            
-                
+
+
 
                 desenhaBolinha(xBola, yBola, raioBola)
 
@@ -86,16 +86,27 @@
 
                 };
 
-                if(xBola - raioBola < xRaquete +larguraRaquete 
-                && yBola- raioBola > posicaoRaquete 
-                && yBola - raioBola < posicaoRaquete + alturaRaquete){
+                if (xBola - raioBola < xRaquete + larguraRaquete &&
+                    yBola - raioBola > posicaoRaquete &&
+                    yBola - raioBola < posicaoRaquete + alturaRaquete) {
 
-                    velocidadeXBola = velocidadeXBola *-1
+                    velocidadeXBola = velocidadeXBola * -1
                 }
 
             }
+            document.onkeydown = (e) => {
+                e = e || window.event;
+                if (e.keyCode === 38) {
+                    sobeRaquete();
+                } else if (e.keyCode === 40) {
+                    desceRaquete();
+                } else if (e.keyCode === 37) {
+                    console.log('left arrow pressed')
+                } else if (e.keyCode === 39) {
+                    console.log('right arrow pressed')
+                }
+            }
 
-            
 
             onkeypress = desceRaquete;
             onclick = sobeRaquete;
