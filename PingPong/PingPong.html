@@ -1,0 +1,231 @@
+<head>
+    <meta charset="UTF-8">
+
+    <canvas width="600" height="400"></canvas>
+
+</head>
+
+<body>
+    <audio id="myAudio">
+
+        <source src="raquetada.wav"">
+
+    </audio>
+
+    <audio id="myAudio2">
+
+        <source src="ponto.mp3" id="">
+
+    </audio>
+
+    <audio id="myAudio3">
+
+        <source src="trilha.wav" id="">
+
+    </audio>
+
+    <script>
+        var x = document.getElementById("myAudio");
+        var y = document.getElementById("myAudio2");
+        var z = document.getElementById("myAudio3");
+
+        function playAudioRaquetada() {
+            x.play();
+        }
+
+        function playAudioTrilha() {
+            z.play();
+        }
+
+        function playAudioPonto() {
+            y.play();
+        }
+
+        playAudioTrilha();
+
+        var somRaquetada;
+        var somPonto;
+        var trilha;
+
+
+
+
+
+
+
+
+
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+        pincel.fillStyle = 'black';
+        pincel.fillRect(0, 0, 600, 400);
+
+
+        function desenhaQuadrado(x, y, xF, yF, cor) {
+
+            pincel.fillStyle = cor;
+            pincel.fillRect(x, y, xF, yF)
+            pincel.fill();
+        }
+
+        var xRaquete = 10
+        var posicaoRaquete = 100
+        var larguraRaquete = 10
+        var alturaRaquete = 150
+
+
+        function desenhaRaquete() {
+
+            pincel.fillStyle = 'white';
+            pincel.fillRect(xRaquete, posicaoRaquete, larguraRaquete, alturaRaquete)
+            pincel.fill();
+        }
+
+        function desceRaquete() {
+
+
+            posicaoRaquete = posicaoRaquete + 10
+        }
+
+        function sobeRaquete() {
+
+
+            posicaoRaquete = posicaoRaquete - 10
+        }
+
+        var xOponente = 585
+        var posicaoOponente = 100
+        var larguraOponente = 10
+        var alturaOponente = 150
+
+        function desenhaOponente() {
+
+            pincel.fillStyle = 'white';
+            pincel.fillRect(xOponente, posicaoOponente, larguraOponente, alturaOponente)
+            pincel.fill();
+
+        };
+
+        function movimentaOponente() {
+
+            return posicaoOponente = yBola - 50
+
+
+        }
+
+        var meusPontos = 0;
+        var pontosInimigo = 0;
+
+        function incluirPlacar() {
+
+
+            pincel.fillStyle = 'orange'
+            pincel.fillRect(271, 13, 20, 20)
+            pincel.fillRect(293, 13, 20, 20)
+            pincel.strokeStyle = 'white'
+            pincel.strokeRect(271, 13, 20, 20)
+            pincel.strokeRect(293, 13, 20, 20)
+            pincel.fillStyle = 'white'
+            pincel.fillText(meusPontos, 278, 26)
+            pincel.fillText(pontosInimigo, 300, 26)
+        }
+
+        function desenhaBolinha(x, y, raio) {
+
+            desenhaQuadrado(0, 0, 600, 400, 'black')
+
+            desenhaRaquete()
+            movimentaOponente()
+            desenhaOponente();
+            incluirPlacar()
+
+            pincel.fillStyle = 'white';
+            pincel.beginPath();
+            pincel.arc(x, y, raio, 0, 2 * 3.14);
+            pincel.fill();
+
+        }
+
+        xBola = 300;
+        yBola = 200;
+        raioBola = 20
+        velocidadeXBola = 1;
+        velocidadeYBola = 1;
+
+        function animaBola() {
+
+
+
+            desenhaBolinha(xBola, yBola, raioBola)
+
+            xBola = xBola + velocidadeXBola;
+            yBola = yBola + velocidadeYBola;
+
+            if (xBola > 600 - raioBola) {
+
+                velocidadeXBola = velocidadeXBola * -1
+
+                meusPontos = meusPontos + 1
+                playAudioPonto()
+                xBola = 300;
+                yBola = 200;
+            } else if (xBola < 0 + raioBola) {
+
+                velocidadeXBola = velocidadeXBola * -1
+                pontosInimigo = pontosInimigo + 1
+                playAudioPonto()
+                xBola = 300;
+                yBola = 200;
+            };
+
+            if (yBola > 400 - raioBola) {
+
+                velocidadeYBola = velocidadeYBola * -1
+
+            } else if (yBola < 0 + raioBola) {
+
+                velocidadeYBola = velocidadeYBola * -1
+
+            };
+
+            if (xBola - raioBola < xRaquete + larguraRaquete &&
+                yBola - raioBola > posicaoRaquete &&
+                yBola - raioBola < posicaoRaquete + alturaRaquete) {
+
+                velocidadeXBola = velocidadeXBola * -1
+                playAudioRaquetada()
+
+            }
+
+            if (xBola + raioBola > xOponente &&
+                yBola - raioBola > posicaoOponente &&
+                yBola - raioBola < posicaoOponente + alturaRaquete) {
+
+                velocidadeXBola = velocidadeXBola * -1
+                playAudioRaquetada()
+            }
+
+
+
+        }
+        document.onkeydown = (e) => {
+            e = e || window.event;
+            if (e.keyCode === 38) {
+                sobeRaquete();
+            } else if (e.keyCode === 40) {
+                desceRaquete();
+            } else if (e.keyCode === 37) {
+                console.log('left arrow pressed')
+            } else if (e.keyCode === 39) {
+                console.log('right arrow pressed')
+            }
+        }
+
+
+
+
+
+        setInterval(animaBola, 0)
+        setInterval(playAudioTrilha, 1)
+    </script>
+</body>

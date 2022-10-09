@@ -1,118 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testezin</title>
+</head>
+<body>
 
-    <canvas width="600" height="400"></canvas>
-
-    <body>
-        <script>
-            var tela = document.querySelector('canvas');
-            var pincel = tela.getContext('2d');
-            pincel.fillStyle = 'black';
-            pincel.fillRect(0, 0, 600, 400);
-
-
-            function desenhaQuadrado(x, y, xF, yF, cor) {
-
-                pincel.fillStyle = cor;
-                pincel.fillRect(x, y, xF, yF)
-                pincel.fill();
-            }
-            var larguraRaquete = 10
-            var alturaRaquete = 150
-            var posicaoRaquete = 100
-            var xRaquete = 10
-
-            function desenhaRaquete() {
-
-                pincel.fillStyle = 'white';
-                pincel.fillRect(xRaquete, posicaoRaquete, larguraRaquete, alturaRaquete)
-                pincel.fill();
-            }
-
-            function desceRaquete() {
-
-
-                posicaoRaquete = posicaoRaquete + 10
-            }
-
-            function sobeRaquete() {
-
-
-                posicaoRaquete = posicaoRaquete - 10
-            }
-
-
-            function desenhaBolinha(x, y, raio) {
-
-                desenhaQuadrado(0, 0, 600, 400, 'black')
-
-                desenhaRaquete()
-
-                pincel.fillStyle = 'white';
-                pincel.beginPath();
-                pincel.arc(x, y, raio, 0, 2 * 3.14);
-                pincel.fill();
-
-            }
-
-            xBola = 300;
-            yBola = 200;
-            raioBola = 20
-            velocidadeXBola = 1;
-            velocidadeYBola = 1;
-
-            function animaBola() {
+    <script>
 
 
 
-                desenhaBolinha(xBola, yBola, raioBola)
-
-                xBola = xBola + velocidadeXBola;
-                yBola = yBola + velocidadeYBola;
-
-                if (xBola > 600 - raioBola) {
-
-                    velocidadeXBola = velocidadeXBola * -1
-                } else if (xBola < 0 + raioBola) {
-
-                    velocidadeXBola = velocidadeXBola * -1
-                };
-
-                if (yBola > 400 - raioBola) {
-
-                    velocidadeYBola = velocidadeYBola * -1
-                } else if (yBola < 0 + raioBola) {
-
-                    velocidadeYBola = velocidadeYBola * -1
-
-                };
-
-                if (xBola - raioBola < xRaquete + larguraRaquete &&
-                    yBola - raioBola > posicaoRaquete &&
-                    yBola - raioBola < posicaoRaquete + alturaRaquete) {
-
-                    velocidadeXBola = velocidadeXBola * -1
-                }
-
-            }
-            document.onkeydown = (e) => {
-                e = e || window.event;
-                if (e.keyCode === 38) {
-                    sobeRaquete();
-                } else if (e.keyCode === 40) {
-                    desceRaquete();
-                } else if (e.keyCode === 37) {
-                    console.log('left arrow pressed')
-                } else if (e.keyCode === 39) {
-                    console.log('right arrow pressed')
-                }
-            }
-
-
-            onkeypress = desceRaquete;
-            onclick = sobeRaquete;
 
 
 
-            setInterval(animaBola, 0)
-        </script>
-    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
