@@ -1,5 +1,2 @@
 
-AAAAAAAAAAAAAAAAAAAAA
-
-
-tentando fazer essa desgraça de pingpong na mão
+Não deu pra fazer nada, vou ver se estudo mais hoje
