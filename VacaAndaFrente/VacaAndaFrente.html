@@ -89,10 +89,10 @@
                 pincel.fill();
             }
 
-            var xCVe = 1200 - 300
-            var xCAz = 1200 - 300
-            var xCLa = 1200 - 300
-            var xCRo = 1200 - 300
+            var xCVe = 1200
+            var xCAz = 1200
+            var xCLa = 1200
+            var xCRo = 1200
 
             var yCVe = 120
             var yCAz = 230
@@ -114,7 +114,7 @@
             function desenhaCarro(x, y, cor) {
 
                 pincel.fillStyle = 'black'
-                pincel.fillRect(x - margemHitBox, y, 40 + margemHitBox, alturaCarro)
+                pincel.fillRect(x - margemHitBox, y - margemHitBox, 40 + margemHitBox, alturaCarro + margemHitBox)
 
 
                 pincel.fillStyle = cor;
@@ -122,11 +122,41 @@
                 fazRoda(x, y);
             }
 
+            var velVe = 4
+            var velAz = 3
+            var velLa = 2
+            var velRo = 1
+
             function todosCarros() {
                 desenhaCarro(xCVe, yCVe, 'red');
+
+                xCVe = xCVe - velVe
+
+                if (xCVe < 0) {
+
+                    xCVe = 1200
+                }
+
                 desenhaCarro(xCAz, yCAz, 'blue');
+                xCAz = xCAz - velAz
+                if (xCAz < 0) {
+
+                    xCAz = 1200
+                }
                 desenhaCarro(xCLa, yCLa, 'orange');
+                xCLa = xCLa - velLa
+                if (xCLa < 0) {
+
+                    xCLa = 1200
+                }
                 desenhaCarro(xCRo, yCRo, 'purple');
+                xCRo = xCRo - velRo
+                if (xCRo < 0) {
+
+                    xCRo = 1200
+                }
+
+
             }
             todosCarros()
 
@@ -137,8 +167,26 @@
 
             function desenhaPlayer() {
 
+                pincel.fillStyle = 'black';
+                pincel.beginPath();
+                pincel.arc(posiçãoXPlayer +(larguraPlayer/2), posiçãoYPlayer + (larguraPlayer/2), 17, 0, 2 * 3.14);
+                pincel.fill();
+
+
                 pincel.fillStyle = 'white'
                 pincel.fillRect(posiçãoXPlayer, posiçãoYPlayer, larguraPlayer, larguraPlayer)
+            
+                if(posiçãoXPlayer +larguraPlayer>xCVe-margemHitBox &&
+            posiçãoXPlayer<40 + margemHitBox &&
+            posiçãoYPlayer + larguraPlayer> yCVe - margemHitBox           
+            
+            ){
+
+                posiçãoXPlayer = 600
+                posiçãoYPlayer = 550
+            }
+            
+            
             }
 
             function sobePlayer() {
@@ -161,18 +209,19 @@
                 posiçãoXPlayer = posiçãoXPlayer - 50
             }
 
+
             desenhaPlayer(600, 550)
 
 
             document.onkeydown = (e) => {
                 e = e || window.event;
-                if (e.keyCode === 38) {
+                if (e.keyCode === 38 && posiçãoYPlayer > 0) {
                     sobePlayer()
-                } else if (e.keyCode === 40) {
+                } else if (e.keyCode === 40 && posiçãoYPlayer < 550) {
                     descePlayer()
-                } else if (e.keyCode === 37) {
+                } else if (e.keyCode === 37 && posiçãoXPlayer > 0) {
                     esquerdaPlayer()
-                } else if (e.keyCode === 39) {
+                } else if (e.keyCode === 39 && posiçãoXPlayer < 1140) {
                     direitaPlayer()
                 }
             }
@@ -187,6 +236,11 @@
 
 
             }
+
+
+
+
+
             setInterval(animaTudo, 10)
         </script>
     </body>
@@ -207,13 +261,12 @@
 
 
 
-    //function localizaMouse(evento) {
+    function localizaMouse(evento) {
+    var x = evento.pageX - tela.offsetLeft;
+    y = evento.pageY - tela.offsetTop;
 
-    //var x = evento.pageX - tela.offsetLeft;
-    // y = evento.pageY - tela.offsetTop;
+    console.log(evento.pageX)
+    console.log(evento.pageY)
+    }
 
-    //console.log(evento.pageX)
-    //console.log(evento.pageY)
-    //}
-
-    //tela.onclick = localizaMouse
+    tela.onclick = localizaMouse
