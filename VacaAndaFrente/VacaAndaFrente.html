@@ -100,12 +100,12 @@
             var yCRo = 430
 
             function fazRoda(x, y) {
-                desenhaBolinha(x, y + 25, 8, 'black')
-                desenhaBolinha(x, y + 25, 7, 'white')
-                desenhaBolinha(x, y + 25, 3, 'black')
-                desenhaBolinha(x + 40, y + 25, 8, 'black')
-                desenhaBolinha(x + 40, y + 25, 7, 'white')
-                desenhaBolinha(x + 40, y + 25, 3, 'black')
+                desenhaBolinha(x, y + 35, 8, 'black')
+                desenhaBolinha(x, y + 35, 7, 'white')
+                desenhaBolinha(x, y + 35, 3, 'black')
+                desenhaBolinha(x + 50, y + 35, 8, 'black')
+                desenhaBolinha(x + 50, y + 35, 7, 'white')
+                desenhaBolinha(x + 50, y + 35, 3, 'black')
             }
 
             var margemHitBox = 10
@@ -118,8 +118,14 @@
 
 
                 pincel.fillStyle = cor;
-                pincel.fillRect(x, y, 40, 25)
+                pincel.fillRect(x, y, 50, 35)
                 fazRoda(x, y);
+
+                pincel.fillStyle = 'cyan'
+                pincel.fillRect(x + 5, y + 5, 20, 15)
+
+
+
             }
 
             var velVe = 4
@@ -162,62 +168,138 @@
 
 
             var posiçãoXPlayer = 600
-            var posiçãoYPlayer = 550
+            var posiçãoYPlayer = 580
             var larguraPlayer = 30
 
             function desenhaPlayer() {
 
-                pincel.fillStyle = 'black';
+
+
+                pincel.fillStyle = 'white';
                 pincel.beginPath();
-                pincel.arc(posiçãoXPlayer +(larguraPlayer/2), posiçãoYPlayer + (larguraPlayer/2), 17, 0, 2 * 3.14);
+                pincel.arc(posiçãoXPlayer, posiçãoYPlayer, 19, 0, 2 * 3.14);
                 pincel.fill();
 
 
-                pincel.fillStyle = 'white'
-                pincel.fillRect(posiçãoXPlayer, posiçãoYPlayer, larguraPlayer, larguraPlayer)
-            
-                if(posiçãoXPlayer +larguraPlayer>xCVe-margemHitBox &&
-            posiçãoXPlayer<40 + margemHitBox &&
-            posiçãoYPlayer + larguraPlayer> yCVe - margemHitBox           
-            
-            ){
 
-                posiçãoXPlayer = 600
-                posiçãoYPlayer = 550
-            }
-            
-            
+                if (posiçãoXPlayer + larguraPlayer > xCVe - margemHitBox &&
+                    posiçãoXPlayer < xCVe + 40 + margemHitBox &&
+                    posiçãoYPlayer + larguraPlayer > yCVe &&
+                    posiçãoYPlayer - larguraPlayer < yCVe + 40 + margemHitBox) {
+
+                    posiçãoXPlayer = 600
+                    posiçãoYPlayer = 580
+                    colidiu = true
+
+                }
+
+                if (posiçãoXPlayer + larguraPlayer > xCAz - margemHitBox &&
+                    posiçãoXPlayer < xCAz + 40 + margemHitBox &&
+                    posiçãoYPlayer + larguraPlayer > yCAz &&
+                    posiçãoYPlayer - larguraPlayer < yCAz + 40 + margemHitBox
+
+                ) {
+
+                    posiçãoXPlayer = 600
+                    posiçãoYPlayer = 580
+                    colidiu = true
+                }
+
+                if (posiçãoXPlayer + larguraPlayer > xCLa - margemHitBox &&
+                    posiçãoXPlayer < xCLa + 40 + margemHitBox &&
+                    posiçãoYPlayer + larguraPlayer > yCLa &&
+                    posiçãoYPlayer - larguraPlayer < yCLa + 40 + margemHitBox
+
+                ) {
+
+                    posiçãoXPlayer = 600
+                    posiçãoYPlayer = 580
+                    colidiu = true
+                }
+
+                if (posiçãoXPlayer + larguraPlayer > xCRo - margemHitBox &&
+                    posiçãoXPlayer < xCRo + 40 + margemHitBox &&
+                    posiçãoYPlayer + larguraPlayer > yCRo &&
+                    posiçãoYPlayer - larguraPlayer < yCRo + 40 + margemHitBox
+
+                ) {
+
+                    posiçãoXPlayer = 600
+                    posiçãoYPlayer = 580
+                    colidiu = true
+                }
+                    // fazendo pontos
+                if (posiçãoYPlayer < 20) {
+                    sequencia = sequencia + 1
+                    if (sequencia > recorde){
+                    recorde = recorde +1
+                    }
+                    posiçãoYPlayer = 580
+                }
+
+
             }
 
             function sobePlayer() {
 
-                posiçãoYPlayer = posiçãoYPlayer - 50
+                posiçãoYPlayer = posiçãoYPlayer - 30
             }
 
             function descePlayer() {
 
-                posiçãoYPlayer = posiçãoYPlayer + 50
+                posiçãoYPlayer = posiçãoYPlayer + 30
             }
 
             function direitaPlayer() {
 
-                posiçãoXPlayer = posiçãoXPlayer + 50
+                posiçãoXPlayer = posiçãoXPlayer + 30
             }
 
             function esquerdaPlayer() {
 
-                posiçãoXPlayer = posiçãoXPlayer - 50
+                posiçãoXPlayer = posiçãoXPlayer - 30
+            }
+
+            var sequencia = 0
+            var recorde = 0
+            var colidiu = false
+
+            function resetPontos() {
+
+                if (colidiu) {
+
+                    sequencia = 0
+                    colidiu = false
+
+                
+                }
+
+
+            }
+            
+            function pontuação() {
+
+
+                pincel.fillStyle = 'orange'
+                pincel.fillRect(271, 13, 20, 20)
+                pincel.fillRect(293, 13, 20, 20)
+                pincel.strokeStyle = 'white'
+                pincel.strokeRect(271, 13, 20, 20)
+                pincel.strokeRect(293, 13, 20, 20)
+                pincel.fillStyle = 'white'
+                pincel.fillText(sequencia, 278, 26)
+                pincel.fillText(recorde, 300, 26)
+                resetPontos()
             }
 
 
-            desenhaPlayer(600, 550)
 
 
             document.onkeydown = (e) => {
                 e = e || window.event;
-                if (e.keyCode === 38 && posiçãoYPlayer > 0) {
+                if (e.keyCode === 38 && posiçãoYPlayer > 10) {
                     sobePlayer()
-                } else if (e.keyCode === 40 && posiçãoYPlayer < 550) {
+                } else if (e.keyCode === 40 && posiçãoYPlayer < 600) {
                     descePlayer()
                 } else if (e.keyCode === 37 && posiçãoXPlayer > 0) {
                     esquerdaPlayer()
@@ -233,40 +315,23 @@
 
                 desenhaPlayer()
                 todosCarros()
-
+                pontuação()
 
             }
 
 
 
 
+            function localizaMouse(evento) {
+                var x = evento.pageX - tela.offsetLeft;
+                y = evento.pageY - tela.offsetTop;
+
+                console.log(evento.pageX)
+                console.log(evento.pageY)
+            }
+
+            tela.onclick = localizaMouse
 
             setInterval(animaTudo, 10)
         </script>
     </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    function localizaMouse(evento) {
-    var x = evento.pageX - tela.offsetLeft;
-    y = evento.pageY - tela.offsetTop;
-
-    console.log(evento.pageX)
-    console.log(evento.pageY)
-    }
-
-    tela.onclick = localizaMouse
