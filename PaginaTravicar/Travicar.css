@@ -100,16 +100,19 @@ body {
 
 .AbFolder {
     background: orange;
-    width: 4vw;
-    height: 2vh;
+    width: 8vw;
+    height: 4vh;
     border-radius: 10px;
-    
+    text-transform: uppercase;
+    text-align: center;
+
 }
 
 .AbYoutube {
     background: orange;
-    width: 4vw;
-    height: 2vh;
+    width: 8vw;
+    height: 4vh;
     border-radius: 10px;
-
+    text-transform: uppercase;
+    text-align: center;
 }

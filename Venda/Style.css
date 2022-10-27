@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+body {
+    color: #5c6873;
+    font-family: "Roboto Condensed", sans-serif;
+    padding: 0px !important;
+    margin: 0px !important;
+    font-weight: 300;
+    font-size: 17px;
+}
+
+.Home {
+
+    width: 100vw;
+    height: 17vh;
+    background: rgb(79, 74, 74);
+    overflow: hidden;
+
+}
+
+.Bloa {
+    
+    margin-top: 0.5vh;
+    border-radius: 50px;
+    margin-left: 3vw;
+    width: 17vw;
+    height: 90%;
+    background: rgb(255, 255, 255);
+    overflow: hidden;
+}
+.Logo {
+
+    margin-left: 3vw;
+    height: 17vh;
+    overflow: hidden;
+    align-items: center;
+}

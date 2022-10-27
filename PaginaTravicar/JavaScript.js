@@ -1,1 +1,3 @@
-// escrever uma função que abre um link aleatorio do youtube pra teste
+function AbreYoutubePortal() {
+    window.open("//www.youtube.com/playlist?list=PLdhAk0Q7ezQhG9aV4fwmrLnfVcDcPyxuL");
+}
