@@ -17,7 +17,7 @@ function desenhaQuadrado(x, y, cor) {
     var pincel = tela.getContext('2d');
 
     pincel.fillStyle = cor;
-    fincel.fillRect(x, y, 50, 50)
+    pincel.fillRect(x, y, 50, 50)
     pincel.fillStroke = 'black'
     pincel.fillRect(x, y, 50, 50)
 

@@ -1,0 +1,1 @@
+// escrever uma função que abre um link aleatorio do youtube pra teste
