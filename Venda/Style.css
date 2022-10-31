@@ -7,11 +7,12 @@
 
 body {
     color: #5c6873;
-    font-family: "Roboto Condensed", sans-serif;
+    font-family: "Robo  to Condensed", sans-serif;
     padding: 0px !important;
     margin: 0px !important;
     font-weight: 300;
     font-size: 17px;
+    
 }   
 
 .Home {
@@ -70,7 +71,7 @@ body {
 .Sobre{
 
     width: 100vw;
-    height: 700px;
+    height: 40vh;
 
 }
 
@@ -78,7 +79,7 @@ body {
 
     text-align: center;
     margin-top: 7vh;
-    font-size: 3vw;
+    font-size: 2vw;
     margin-left: 30vw;
     margin-right: 30vw;
     color: black;
@@ -88,7 +89,7 @@ body {
 }
 .espSob{
 
-
+    overflow: hidden;
     text-align: center;
     margin-top: 7vh;
     font-size: 2vw;
@@ -98,14 +99,69 @@ body {
     color: black;
     background: rgb(216, 216, 206);
     width: 40vw;
-    height: 11vh;
-    border-radius: 30px;
-    box-shadow: 0px 0px 10px 2px BLACK;
+    height: 15vh;
+    border-radius: 5px;
+    box-shadow: 0px 2px 10px 0px BLACK;
 }
 .espaça{
 
+    margin-top: 10px;
+    margin-left: 10vw;
+    width: 80vw;
+    height: 1px;
+    background: rgb(209, 174, 174);
 
+}
 
+.produtos{
 
+width: 85vw;
+height: 60vh;
+background: local;
+background: grey;
+margin: 10vw;
+border-radius: 15px;
+overflow: hidden;
+margin-left: 7vw;
 
+}
+
+.produto123{
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    height: 80%;
+    background: rgb(10, 8, 8);
+    border-radius: 15px;
+}
+#produto1{
+
+    margin-left: 5vw;
+    margin-top: 5vh;
+
+}
+
+#produto2{
+    
+    margin-left: 40%;
+    margin-top: -48vh;
+
+}
+
+#produto3{
+
+    margin-left: 75%;
+    margin-top: -48vh;
+
+}
+
+.armas{
+    width: 80%;
+    height: 30%;
+    margin-top: 1vh;
+    background: white;
+    border-radius: 10px;
+    border-style: solid;
+    border-width:10px;
+    border-color:white ;
 }
