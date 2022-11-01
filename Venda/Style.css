@@ -131,7 +131,7 @@ margin-left: 7vw;
     justify-content: center;
     width: 20%;
     height: 80%;
-    background: rgb(10, 8, 8);
+    background: rgb(80, 80, 80);
     border-radius: 15px;
 }
 #produto1{
@@ -164,4 +164,24 @@ margin-left: 7vw;
     border-style: solid;
     border-width:10px;
     border-color:white ;
+}
+
+
+
+#preco1{
+
+width: 80%;
+
+/* NÂO ESQUECER DE POR A "DIV" EM BAIXO */
+
+}
+#preco2{
+
+
+
+}
+#preco3{
+
+
+
 }
