@@ -39,7 +39,7 @@ body{
 .login-card::before{
     content: '';
     position: absolute;
-    background: rgba(255, 255, 225, .6);
+    background: rgba(255, 255, 225, .2);
     inset: 0;
     transform: rotate(-3deg);
     padding: 4rem;
@@ -120,4 +120,61 @@ color:#35339a;}
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-size: calc(1rem*.8);
+    margin-bottom: .5rem;
+
+}
+
+.login-another-acount{
+
+    font-size: calc(1rem*.8);
+    margin-top: 1.5rem;
+
+}
+
+.login-card input[type="text"],
+.login-card input[type="email"],
+.login-card input[type="password"]{
+    justify-content: center;    
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, .3);
+    padding: 1rem  1.5rem;
+    padding-left: calc(1rem*3.5);
+    border-radius: 100px;
+    width: 100%;
+
+}
+
+.login-card input[type="email"],
+.login-card input[type="password"]{
+
+    background: white;
+}
+
+.login-card input[type="checkbox"]{
+
+    width: 20px;
+    height: 20px;
+    accent-color: black;
+}
+
+.login-card-form button{
+
+    background: black;
+    color: white;
+    padding: 1rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: background .99s;
+    
+}
+
+.login-card-form button:hover{
+
+background: linear-gradient(to right, #333399, #a0348a);
+cursor: pointer;
+
+
 }
