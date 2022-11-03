@@ -83,7 +83,7 @@ body {
 .SobreTit {
 
     text-align: center;
-    margin-top: 7vh;
+    margin-top: 10vh;
     font-size: 2vw;
     margin-left: 30vw;
     margin-right: 30vw;
@@ -101,7 +101,7 @@ body {
     font-size: 2vw;
     margin-left: 30vw;
     margin-right: 20vw;
-
+    padding: 1vw;
     color: black;
     background: rgb(216, 216, 206);
     width: 40vw;
@@ -133,6 +133,7 @@ body {
 
 }
 
+
 .produto123 {
     display: flex;
     justify-content: center;
@@ -141,6 +142,16 @@ body {
     background: rgb(255, 255, 255);
     border-radius: 15px;
 }
+
+
+.produto123:hover{
+    
+    width: 30%;
+    height: 90%;
+    box-shadow: 10px 1px -11px 1px black;
+
+}
+
 
 #produto1 {
 
@@ -151,14 +162,14 @@ body {
 
 #produto2 {
 
-    margin-left: 40%;
+    margin-left: 38%;
     margin-top: -48vh;
 
 }
 
 #produto3 {
 
-    margin-left: 75%;
+    margin-left: 69%;
     margin-top: -48vh;
 
 }
@@ -181,7 +192,7 @@ body {
     width: 15%;
     background: rgb(255, 255, 255);
     position: absolute;
-    margin-top: 150px;
+    margin-top: 230px;
     border-style: solid;
     border-width: 2px;
     border-color: black;
@@ -232,42 +243,18 @@ body {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    height: 4.5vw;
+    height: 5vw;
     width: 13vw;
     margin: 10px;
     overflow: hidden;
-}
-
-.button-3:focus:not(:focus-visible):not(.focus-visible) {
-    box-shadow: none;
-    outline: none;
-}
-
-.button-3:hover {
-    background-color: #2c974b;
-}
-
-.button-3:focus {
-    box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
-    outline: none;
-}
-
-.button-3:disabled {
-    background-color: #94d3a2;
-    border-color: rgba(27, 31, 35, .1);
-    color: rgba(255, 255, 255, .8);
-    cursor: default;
-}
-
-.button-3:active {
-    background-color: #298e46;
-    box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+    
 }
 
 
-#fundo {
+/*#fundo {
 
     width: 100vw;
     height: 40vh;
     background-color: rgb(35, 34, 34);
-}
+}   AINDA NÂO UTILIZADA */ 
+
