@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="Login.js"></script>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-card-logo">
+                <img src="imagens/Logo.png" id="login-card-logo">
+            </div>
+            <div class="login-card-header">
+                <h1>Sign in</h1>
+                <div>Por favor entre para acessar ao site</div>
+            </div>
+            <form class="login-card-form">
+                <div class="form-item">
+                    <span class="form-item-icon material-symbols-rounded">mail</span>
+                    <input type="email" id="email" placeholder="Email" required autofocus>
+                    
+                </div>
+                <div class="form-item">
+                    <span class="form-item-icon material-symbols-rounded">Lock</span>
+                    <input type="password" id="password" placeholder="Senha" required>
+                    
+                </div>
+                <div class="form-item-other">
+                    <div class="checkbox">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe">Remember me</label>
+                    </div>
+                    <a href="Index.html">Esqueci minha senha</a>
+                </div>
+                <button type="submit">Sign In</button>
+            </form>
+            <div class="login-another-acount">não tem uma conta? <a href="#">Crie outra</a></div>
+        </div>
+    </div>
+
+</body>
+
+</html>
