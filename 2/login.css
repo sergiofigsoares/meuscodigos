@@ -8,11 +8,88 @@ body{
 
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    background:grey;
+    background:whitesmoke;
+
+
+}
+
+.tudo{
+
     display: flex;
     align-items: center;
     justify-content: center;
+}
+header {
 
+    width: 100vw;
+    height: 300px;
+    background: grey;
+    padding: 20px 0;
+}
+
+.caixa {
+    position: relative;
+    width: 90vw;
+    margin: 0 auto;
+}
+
+.btnHome {
+
+    border: 1px solid transparent;
+    
+    padding: 20px;
+    border-radius: 10px;
+    font-weight: 900;
+    font-size: large;
+    background: rgba(92, 92, 92, 0.719);
+    color: #d8d8da;
+    transition: background .3s;
+}
+
+.btnHome:hover {
+
+    
+    border: 1px solid transparent;
+    background: #d8d8da;
+    color: grey;
+
+
+
+}
+
+nav {
+
+    position: absolute;
+    top: 140px;
+    right: 0px;
+
+}
+
+nav li {
+
+    display: inline;
+    margin: 0 0 0 15px;
+
+}
+
+li a {
+
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #333399;
+    font-weight: bold;
+    font-size: large;
+}
+
+li a:hover {
+
+    text-decoration: underline;
+    color: orange;
+}
+#logo{
+
+
+    width: 300px;
 }
 
 .login-card{

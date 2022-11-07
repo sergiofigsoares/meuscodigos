@@ -4,7 +4,7 @@ body {
 
     background: whitesmoke;
     font-family: 'Poppins', sans-serif;
-
+    overflow-x: hidden;
 }
 
 header {
@@ -160,4 +160,21 @@ li a:hover {
     cursor: pointer;
 
 
+}
+
+
+footer {
+text-align: center;
+width: 100vw;
+height: 50vh;
+background: url(Imagens/bg.jpg);
+padding: 40px 0;
+
+}
+
+footer p3{
+
+    font-size: 14px;
+    font-weight: 10;
+    color: rgb(213, 213, 213);
 }
