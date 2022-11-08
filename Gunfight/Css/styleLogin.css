@@ -5,7 +5,10 @@ body {
     background: whitesmoke;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
+    font-size: 14px;
 }
+
+
 
 header {
 
@@ -13,6 +16,27 @@ header {
     height: 300px;
     background: grey;
     padding: 20px 0;
+}
+
+.material-symbols-rounded {
+    font-variation-settings:
+        'FILL'0,
+        'wght'200,
+        'GRAD'0,
+        'opsz'48
+}
+
+h1{
+
+    font-size: 25px;
+    color: black;
+}
+
+p{
+
+    font-size: 15px;
+    color: rgb(67, 67, 67);
+
 }
 
 .caixa {
@@ -24,7 +48,7 @@ header {
 .btnHome {
 
     border: 1px solid transparent;
-    
+
     padding: 20px;
     border-radius: 10px;
     font-weight: 900;
@@ -36,7 +60,7 @@ header {
 
 .btnHome:hover {
 
-    
+
     border: 1px solid transparent;
     background: #d8d8da;
     color: grey;
@@ -81,10 +105,67 @@ li a:hover {
     width: 300px;
 }
 
+main{
 
-/*--------------------------------------------------------------------------- 
-                        ESPAÇO PRA POR CONTEUDO NO main
---------------------------------------------------------------------------- */
+    margin-left: 40px;
+    width: 30vw;
+    margin: 0px auto;
+}
+.icon{
+
+position: absolute;
+
+}
+.input{
+display: flex;
+margin-left: 30px;
+border: none;
+margin-top: 10px;
+padding: 7px 15vw 7px 3vw;
+border-radius: 50px;
+outline: none;
+}
+
+.secondary-content{ 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.secondary-content a{
+
+text-decoration: none;
+color: #35339a;
+}
+
+.secondary-content a:hover{
+
+    content: "";
+text-decoration: underline;
+
+}
+
+.submit{
+
+    position: relative;
+    width: 100%;
+    border-style: solid;
+    padding: 1vw;
+    background-color: black;
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 15px;
+    letter-spacing: 6px;
+    transition: .5s;
+}
+
+.submit:hover{
+
+
+    background-color: grey;
+    color:black;
+}
 
 footer {
     text-align: center;
@@ -92,12 +173,18 @@ footer {
     height: 50vh;
     background: url(../Images/bg.jpg);
     padding: 40px 0;
-    
-    }
-    
-    footer p3{
-    
-        font-size: 14px;
-        font-weight: 10;
-        color: rgb(213, 213, 213);
-    }
+
+}
+
+footer p3 {
+
+    font-size: 14px;
+    font-weight: 10;
+    color: rgb(213, 213, 213);
+}
+
+.test{
+
+
+    width: 10px;
+}
