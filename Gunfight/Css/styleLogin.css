@@ -124,6 +124,13 @@ margin-top: 10px;
 padding: 7px 15vw 7px 3vw;
 border-radius: 50px;
 outline: none;
+transition: .2s;
+}
+.input:focus-within{
+
+
+    background: black;
+    color: aliceblue;
 }
 
 .secondary-content{ 
@@ -165,6 +172,8 @@ text-decoration: underline;
 
     background-color: grey;
     color:black;
+    cursor: pointer;
+
 }
 
 footer {
