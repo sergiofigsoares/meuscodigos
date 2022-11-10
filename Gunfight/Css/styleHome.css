@@ -229,12 +229,14 @@ footer p3 {
     width: 50vw;
     height: 30vw;
 }
-
+.lock{
+width: 100vw;
+}
 
 /* --------------------PARTE PRA FAZER FUNCIONAR EM CELL--------------------------- */
 
 @media screen and (max-width: 450px) {
-    header, .imagemHome, .container-about, .localizacao, .mapa, .beneficios, .video {
+    header, .imagemHome, .container-about, .localizacao, .mapa, .beneficios, .video, #lock {
         width: auto;
     }
 }
