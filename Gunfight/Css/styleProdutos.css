@@ -101,6 +101,7 @@ li a:hover {
     width: 100vw;
     margin: 60px auto;
     text-align: center;
+    background-color: whitesmoke;
 }
 
 .produtos li {
@@ -178,3 +179,23 @@ footer p3{
     font-weight: 10;
     color: rgb(213, 213, 213);
 }
+
+/* --------------------PARTE PRA FAZER FUNCIONAR EM CELL--------------------------- */
+
+@media screen and (max-width: 450px) {
+    header, footer, .produtos {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #logo {
+        width: 80%;
+    }
+}
+
+
+
+
+
+/* --------------------PARTE PRA FAZER FUNCIONAR EM CELL--------------------------- */

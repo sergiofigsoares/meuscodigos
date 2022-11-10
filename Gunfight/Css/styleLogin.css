@@ -197,3 +197,23 @@ footer p3 {
 
     width: 10px;
 }
+
+/* --------------------PARTE PRA FAZER FUNCIONAR EM CELL--------------------------- */
+
+@media screen and (max-width: 450px) {
+    header, main, footer {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #logo {
+        width: 80%;
+    }
+}
+
+
+
+
+
+/* --------------------PARTE PRA FAZER FUNCIONAR EM CELL--------------------------- */
