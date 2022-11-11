@@ -1,0 +1,33 @@
+body {
+    align-items: center;
+    background: linear-gradient(45deg, #a7cfdf 0%, #23538a 100%);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+}
+
+
+
+.soundboard {
+    background: linear-gradient(to bottom, #eeeeee 0%, #cccccc 100%);
+    border-radius: 30px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 10px;
+}
+
+.caixa {
+    background-color: whitesmoke;
+    border-radius: 30px;
+    cursor: pointer;
+    height: 120px;
+    font-size: 1.75em;
+    font-weight: bold;
+    line-height: 120px;
+    border: solid;
+    width: 120px;
+}
+
